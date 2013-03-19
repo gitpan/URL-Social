@@ -5,7 +5,7 @@ etc.) for any given URL.
 
 # VERSION
 
-Version 0.03
+Version 0.04
 
 # DESCRIPTION
 

@@ -1,3 +1,8 @@
+0.04    2013-03-19
+        - Changed default cache expiration to 3 minutes.
+        - SHA-encode URLs (for cache keys).
+            - Added Digest::SHA 5.84 as requirement.
+
 0.03    2013-03-19
         - Removed unnecessary output to STDERR.
 

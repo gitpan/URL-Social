@@ -3,6 +3,7 @@ use Mouse;
 use namespace::autoclean;
 
 use CHI;
+use Digest::SHA qw( sha256_hex );
 use Mojo::UserAgent;
 
 =head1 NAME
@@ -27,7 +28,7 @@ sub _build_cache {
     return CHI->new(
         driver     => 'File',
         namespace  => 'URL-Social',
-        expires_in => '10 minutes',
+        expires_in => '3 minutes',
     );
 }
 
@@ -41,14 +42,15 @@ sub get_url_json {
     my $self = shift;
     my $url  = shift || $self->url;
 
+    my $sha  = sha256_hex( $url );
     my $json = undef;
 
-    unless ( $json = $self->cache->get($url) ) {
+    unless ( $json = $self->cache->get($sha) ) {
         my $tx = $self->useragent->get( $url );
 
         if ( my $res = $tx->success ) {
             $json = $res->json;
-            $self->cache->set( $url, $json );
+            $self->cache->set( $sha, $json );
         }
     }
 

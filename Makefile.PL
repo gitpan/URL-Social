@@ -24,12 +24,13 @@ my %WriteMakefileArgs = (
   "NAME" => "URL::Social",
   "PREREQ_PM" => {
     "CHI" => "0.56",
+    "Digest::SHA" => "5.84",
     "Mojolicious" => "3.86",
     "Mouse" => "1.05",
     "MouseX::NativeTraits" => "1.09",
     "namespace::autoclean" => "0.13"
   },
-  "VERSION" => "0.03",
+  "VERSION" => "0.04",
   "test" => {
     "TESTS" => "t/*.t"
   }
