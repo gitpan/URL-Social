@@ -1,0 +1,22 @@
+---
+abstract: 'Given a URL, retrieve social information about it, like number of times it has been shared etc.'
+author:
+  - 'Tore Aursand <toreau@gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.64
+  Test::More: 0.98
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: URL-Social
+requires:
+  Mojolicious: 3.86
+  Mouse: 1.05
+  MouseX::NativeTraits: 1.09
+  namespace::autoclean: 0.13
+version: 0.01
