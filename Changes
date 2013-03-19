@@ -1,0 +1,5 @@
+0.02    2013-03-19
+        - Added caching of URL requests.
+
+0.01    2013-03-19
+        - Initial release.

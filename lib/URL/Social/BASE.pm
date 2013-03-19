@@ -2,6 +2,7 @@ package URL::Social::BASE;
 use Mouse;
 use namespace::autoclean;
 
+use CHI;
 use Mojo::UserAgent;
 
 =head1 NAME
@@ -17,7 +18,18 @@ for the different social classes.
 
 has 'url'  => ( isa => 'Str', is => 'rw', required => 1, default => '' );
 
+has 'cache'     => ( isa => 'Object',          is => 'ro', lazy_build => 1 );
 has 'useragent' => ( isa => 'Mojo::UserAgent', is => 'ro', lazy_build => 1 );
+
+sub _build_cache {
+    my $self = shift;
+
+    return CHI->new(
+        driver     => 'File',
+        namespace  => 'URL-Social',
+        expires_in => '10 minutes',
+    );
+}
 
 sub _build_useragent {
     my $self = shift;
@@ -29,14 +41,19 @@ sub get_url_json {
     my $self = shift;
     my $url  = shift || $self->url;
 
-    my $tx = $self->useragent->get( $url );
+    my $json = undef;
 
-    if ( my $res = $tx->success ) {
-        return $res->json;
+    unless ( $json = $self->cache->get($url) ) {
+        print STDERR "CACHE MISS\n";
+        my $tx = $self->useragent->get( $url );
+
+        if ( my $res = $tx->success ) {
+            $json = $res->json;
+            $self->cache->set( $url, $json );
+        }
     }
-    else {
-        return undef;
-    }
+
+    return $json || {};
 }
 
 #
