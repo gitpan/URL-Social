@@ -5,7 +5,7 @@ etc.) for any given URL.
 
 # VERSION
 
-Version 0.04
+Version 0.05
 
 # DESCRIPTION
 
@@ -14,6 +14,7 @@ etc. for any given URL from the following services:
 
     * Facebook
     * LinkedIn
+    * Reddit
     * StumbleUpon
     * Twitter
 
@@ -51,6 +52,10 @@ Returns an instance of the [URL::Social::Facebook](http://search.cpan.org/perldo
 ## linkedin
 
 Returns an instance of the [URL::Social::LinkedIn](http://search.cpan.org/perldoc?URL::Social::LinkedIn) class.
+
+## reddit
+
+Returns an instance of the [URL::Social::Reddit](http://search.cpan.org/perldoc?URL::Social::Reddit) class.
 
 ## stumbleupon
 

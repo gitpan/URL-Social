@@ -21,4 +21,4 @@ requires:
   Mouse: 1.05
   MouseX::NativeTraits: 1.09
   namespace::autoclean: 0.13
-version: 0.04
+version: 0.05

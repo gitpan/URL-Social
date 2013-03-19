@@ -10,6 +10,8 @@ lib/URL/Social.pm
 lib/URL/Social/BASE.pm
 lib/URL/Social/Facebook.pm
 lib/URL/Social/LinkedIn.pm
+lib/URL/Social/Reddit.pm
+lib/URL/Social/Reddit/Post.pm
 lib/URL/Social/StumbleUpon.pm
 lib/URL/Social/Twitter.pm
 t/00.load.t
@@ -17,3 +19,4 @@ t/10.twitter.t
 t/20.facebook.t
 t/30.linkedin.t
 t/40.stumbleupon.t
+t/50.reddit.t

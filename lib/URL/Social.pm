@@ -4,6 +4,7 @@ use namespace::autoclean;
 
 use URL::Social::Facebook;
 use URL::Social::LinkedIn;
+use URL::Social::Reddit;
 use URL::Social::StumbleUpon;
 use URL::Social::Twitter;
 
@@ -14,11 +15,11 @@ etc.) for any given URL.
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 DESCRIPTION
 
@@ -27,6 +28,7 @@ etc. for any given URL from the following services:
 
     * Facebook
     * LinkedIn
+    * Reddit
     * StumbleUpon
     * Twitter
 
@@ -63,6 +65,7 @@ has 'url' => ( isa => 'Str', is => 'ro', required => 1, default => '' );
 
 has 'facebook'    => ( isa => 'URL::Social::Facebook',    is => 'ro', lazy_build => 1 );
 has 'linkedin'    => ( isa => 'URL::Social::LinkedIn',    is => 'ro', lazy_build => 1 );
+has 'reddit'      => ( isa => 'URL::Social::Reddit',      is => 'ro', lazy_build => 1 );
 has 'stumbleupon' => ( isa => 'URL::Social::StumbleUpon', is => 'ro', lazy_build => 1 );
 has 'twitter'     => ( isa => 'URL::Social::Twitter',     is => 'ro', lazy_build => 1 );
 
@@ -84,6 +87,16 @@ Returns an instance of the L<URL::Social::LinkedIn> class.
 
 sub _build_linkedin {
     return URL::Social::LinkedIn->new( url => shift->url );
+}
+
+=head2 reddit
+
+Returns an instance of the L<URL::Social::Reddit> class.
+
+=cut
+
+sub _build_reddit {
+    return URL::Social::Reddit->new( url => shift->url );
 }
 
 =head2 stumbleupon
