@@ -44,7 +44,6 @@ sub get_url_json {
     my $json = undef;
 
     unless ( $json = $self->cache->get($url) ) {
-        print STDERR "CACHE MISS\n";
         my $tx = $self->useragent->get( $url );
 
         if ( my $res = $tx->success ) {

@@ -1,3 +1,6 @@
+0.03    2013-03-19
+        - Removed unnecessary output to STDERR.
+
 0.02    2013-03-19
         - Added caching of URL requests.
 
