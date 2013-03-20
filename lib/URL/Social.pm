@@ -1,5 +1,5 @@
 package URL::Social;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 use URL::Social::Facebook;
@@ -15,11 +15,11 @@ etc.) for any given URL.
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 =head1 DESCRIPTION
 
@@ -51,7 +51,7 @@ These will be added in the near (...) future:
 
 =head1 METHODS
 
-head2 new( url => $url )
+=head2 new( url => $url )
 
 Returns an instance of this class. Requires C<$url> as an argument;
 
@@ -125,6 +125,15 @@ sub _build_twitter {
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=head1 TODO
+
+    * Improve tests, as the current tests do live requests.
+    * Add support for more social APIs.
+
+=head1 BUGS
+
+Most probably. Please report any bugs at http://rt.cpan.org/.
 
 =head1 LICENSE AND COPYRIGHT
 

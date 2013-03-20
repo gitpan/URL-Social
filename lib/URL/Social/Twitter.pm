@@ -1,5 +1,5 @@
 package URL::Social::Twitter;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 extends 'URL::Social::BASE';

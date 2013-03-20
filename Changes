@@ -1,3 +1,7 @@
+0.06    2013-03-20
+        - Now depends on Moose instead of Mouse.
+        - Improved the documentation.
+
 0.05    2013-03-19
         - Added support for Reddit.
 

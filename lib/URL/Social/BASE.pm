@@ -1,5 +1,5 @@
 package URL::Social::BASE;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 use CHI;

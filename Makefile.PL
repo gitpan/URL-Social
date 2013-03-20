@@ -26,11 +26,10 @@ my %WriteMakefileArgs = (
     "CHI" => "0.56",
     "Digest::SHA" => "5.84",
     "Mojolicious" => "3.86",
-    "Mouse" => "1.05",
-    "MouseX::NativeTraits" => "1.09",
+    "Moose" => "2.0604",
     "namespace::autoclean" => "0.13"
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }

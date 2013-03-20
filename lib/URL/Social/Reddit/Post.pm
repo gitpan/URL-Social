@@ -1,5 +1,5 @@
 package URL::Social::Reddit::Post;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 has 'author'         => ( isa => 'Str', is => 'ro', required => 1, default => '' );

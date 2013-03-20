@@ -5,7 +5,7 @@ etc.) for any given URL.
 
 # VERSION
 
-Version 0.05
+Version 0.06
 
 # DESCRIPTION
 
@@ -37,7 +37,7 @@ These will be added in the near (...) future:
 
 # METHODS
 
-head2 new( url => $url )
+## new( url => $url )
 
 Returns an instance of this class. Requires `$url` as an argument;
 
@@ -64,6 +64,15 @@ Returns an instance of the [URL::Social::StumbleUpon](http://search.cpan.org/per
 ## twitter
 
 Returns an instance of the [URL::Social::Twitter](http://search.cpan.org/perldoc?URL::Social::Twitter) class.
+
+# TODO
+
+    * Improve tests, as the current tests do live requests.
+    * Add support for more social APIs.
+
+# BUGS
+
+Most probably. Please report any bugs at http://rt.cpan.org/.
 
 # LICENSE AND COPYRIGHT
 

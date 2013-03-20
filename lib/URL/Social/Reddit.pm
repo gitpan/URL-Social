@@ -1,5 +1,5 @@
 package URL::Social::Reddit;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 extends 'URL::Social::BASE';

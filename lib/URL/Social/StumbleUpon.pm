@@ -1,5 +1,5 @@
 package URL::Social::StumbleUpon;
-use Mouse;
+use Moose;
 use namespace::autoclean;
 
 extends 'URL::Social::BASE';
