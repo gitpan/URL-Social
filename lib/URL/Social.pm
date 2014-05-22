@@ -15,11 +15,11 @@ etc.) for any given URL.
 
 =head1 VERSION
 
-Version 0.06
+Version 0.07
 
 =cut
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =head1 DESCRIPTION
 
@@ -31,11 +31,6 @@ etc. for any given URL from the following services:
     * Reddit
     * StumbleUpon
     * Twitter
-
-These will be added in the near (...) future:
-
-    * Google+
-    * Pinterest
 
 =head1 SYNOPSIS
 
@@ -61,7 +56,7 @@ Returns an instance of this class. Requires C<$url> as an argument;
 
 =cut
 
-has 'url' => ( isa => 'Str', is => 'ro', required => 1, default => '' );
+has 'url' => ( isa => 'Str',  is => 'ro', required => 1, default => '' );
 
 has 'facebook'    => ( isa => 'URL::Social::Facebook',    is => 'ro', lazy_build => 1 );
 has 'linkedin'    => ( isa => 'URL::Social::LinkedIn',    is => 'ro', lazy_build => 1 );
@@ -76,7 +71,9 @@ Returns an instance of the L<URL::Social::Facebook> class.
 =cut
 
 sub _build_facebook {
-    return URL::Social::Facebook->new( url => shift->url );
+    my $self = shift;
+
+    return URL::Social::Facebook->new( url => $self->url );
 }
 
 =head2 linkedin
@@ -86,7 +83,9 @@ Returns an instance of the L<URL::Social::LinkedIn> class.
 =cut
 
 sub _build_linkedin {
-    return URL::Social::LinkedIn->new( url => shift->url );
+    my $self = shift;
+
+    return URL::Social::LinkedIn->new( url => $self->url );
 }
 
 =head2 reddit
@@ -96,7 +95,9 @@ Returns an instance of the L<URL::Social::Reddit> class.
 =cut
 
 sub _build_reddit {
-    return URL::Social::Reddit->new( url => shift->url );
+    my $self = shift;
+
+    return URL::Social::Reddit->new( url => $self->url );
 }
 
 =head2 stumbleupon
@@ -106,7 +107,9 @@ Returns an instance of the L<URL::Social::StumbleUpon> class.
 =cut
 
 sub _build_stumbleupon {
-    return URL::Social::StumbleUpon->new( url => shift->url );
+    my $self = shift;
+
+    return URL::Social::StumbleUpon->new( url => $self->url );
 }
 
 =head2 twitter
@@ -116,7 +119,9 @@ Returns an instance of the L<URL::Social::Twitter> class.
 =cut
 
 sub _build_twitter {
-    return URL::Social::Twitter->new( url => shift->url );
+    my $self = shift;
+
+    return URL::Social::Twitter->new( url => $self->url );
 }
 
 #
@@ -129,7 +134,7 @@ __PACKAGE__->meta->make_immutable;
 =head1 TODO
 
     * Improve tests, as the current tests do live requests.
-    * Add support for more social APIs.
+    * Add support for more social APIs; Google+, Pinterest, Disqus etc.
 
 =head1 BUGS
 
@@ -137,7 +142,7 @@ Most probably. Please report any bugs at http://rt.cpan.org/.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 Tore Aursand.
+Copyright 2013-2014 Tore Aursand.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

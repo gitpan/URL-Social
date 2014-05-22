@@ -2,9 +2,8 @@ package URL::Social::BASE;
 use Moose;
 use namespace::autoclean;
 
-use CHI;
-use Digest::SHA qw( sha256_hex );
-use Mojo::UserAgent;
+use LWP::UserAgent;
+use JSON;
 
 =head1 NAME
 
@@ -19,42 +18,31 @@ for the different social classes.
 
 has 'url'  => ( isa => 'Str', is => 'rw', required => 1, default => '' );
 
-has 'cache'     => ( isa => 'Object',          is => 'ro', lazy_build => 1 );
-has 'useragent' => ( isa => 'Mojo::UserAgent', is => 'ro', lazy_build => 1 );
-
-sub _build_cache {
-    my $self = shift;
-
-    return CHI->new(
-        driver     => 'File',
-        namespace  => 'URL-Social',
-        expires_in => '3 minutes',
-    );
-}
+has 'useragent' => ( isa => 'LWP::UserAgent', is => 'ro', lazy_build => 1 );
 
 sub _build_useragent {
     my $self = shift;
 
-    return Mojo::UserAgent->new;
+    return LWP::UserAgent->new;
 }
 
 sub get_url_json {
     my $self = shift;
     my $url  = shift || $self->url;
 
-    my $sha  = sha256_hex( $url );
-    my $json = undef;
-
-    unless ( $json = $self->cache->get($sha) ) {
-        my $tx = $self->useragent->get( $url );
-
-        if ( my $res = $tx->success ) {
-            $json = $res->json;
-            $self->cache->set( $sha, $json );
-        }
+    if ( $url =~ m,(file://.+), ) { # For testing against local files
+        $url =  $1;
+        $url =~ s/"$//;
     }
 
-    return $json || {};
+    my $response = $self->useragent->get( $url );
+
+    if ( $response->is_success ) {
+        return JSON::decode_json( $response->content );
+    }
+    else {
+        return undef;
+    }
 }
 
 #
@@ -66,7 +54,7 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 Tore Aursand.
+Copyright 2013-2014 Tore Aursand.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

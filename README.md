@@ -5,7 +5,7 @@ etc.) for any given URL.
 
 # VERSION
 
-Version 0.06
+Version 0.07
 
 # DESCRIPTION
 
@@ -47,23 +47,23 @@ Returns an instance of this class. Requires `$url` as an argument;
 
 ## facebook
 
-Returns an instance of the [URL::Social::Facebook](http://search.cpan.org/perldoc?URL::Social::Facebook) class.
+Returns an instance of the [URL::Social::Facebook](https://metacpan.org/pod/URL::Social::Facebook) class.
 
 ## linkedin
 
-Returns an instance of the [URL::Social::LinkedIn](http://search.cpan.org/perldoc?URL::Social::LinkedIn) class.
+Returns an instance of the [URL::Social::LinkedIn](https://metacpan.org/pod/URL::Social::LinkedIn) class.
 
 ## reddit
 
-Returns an instance of the [URL::Social::Reddit](http://search.cpan.org/perldoc?URL::Social::Reddit) class.
+Returns an instance of the [URL::Social::Reddit](https://metacpan.org/pod/URL::Social::Reddit) class.
 
 ## stumbleupon
 
-Returns an instance of the [URL::Social::StumbleUpon](http://search.cpan.org/perldoc?URL::Social::StumbleUpon) class.
+Returns an instance of the [URL::Social::StumbleUpon](https://metacpan.org/pod/URL::Social::StumbleUpon) class.
 
 ## twitter
 
-Returns an instance of the [URL::Social::Twitter](http://search.cpan.org/perldoc?URL::Social::Twitter) class.
+Returns an instance of the [URL::Social::Twitter](https://metacpan.org/pod/URL::Social::Twitter) class.
 
 # TODO
 
@@ -76,13 +76,13 @@ Most probably. Please report any bugs at http://rt.cpan.org/.
 
 # LICENSE AND COPYRIGHT
 
-Copyright 2013 Tore Aursand.
+Copyright 2013-2014 Tore Aursand.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-[http://www.perlfoundation.org/artistic\_license\_2\_0](http://www.perlfoundation.org/artistic\_license\_2\_0)
+[http://www.perlfoundation.org/artistic\_license\_2\_0](http://www.perlfoundation.org/artistic_license_2_0)
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or

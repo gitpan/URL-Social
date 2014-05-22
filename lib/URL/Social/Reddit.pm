@@ -154,7 +154,7 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 Tore Aursand.
+Copyright 2013-2014 Tore Aursand.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

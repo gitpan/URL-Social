@@ -1,3 +1,8 @@
+0.07    2014-05-22
+        - Tests will now use local data instead of querying the services.
+        - Removed caching functionality; not this module's job.
+        - Improved the documentation.
+
 0.06    2013-03-20
         - Now depends on Moose instead of Mouse.
         - Improved the documentation.
